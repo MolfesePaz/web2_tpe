@@ -1,9 +1,10 @@
 <h1 align="center">Trabajo Practico Especial Web 2</h1>
 Miembros:
 
+✓ Luciana Araujo
+
 ✓ Molfese María Paz
 
-✓ Luciana araujo
 
 Dominio:
 
