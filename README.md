@@ -15,5 +15,6 @@ Actualmente, trabajamos con una empresa llamada ZenAir, cuyo nombre "Zen" evoca 
 
 Nuestro diagrama de la base de datos:
 
-<img href="/diagrama.png">
+!(/diagrama.png)
+
 
