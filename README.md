@@ -1,7 +1,7 @@
 <h1 align="center">Trabajo Practico Especial Web 2</h1>
 Miembros:
 
-✓ Luciana Araujo
+✓ Luciana Araujo (se dio de baja)
 
 ✓ Molfese María Paz
 
@@ -17,5 +17,14 @@ Actualmente, trabajamos con una empresa llamada ZenAir, cuyo nombre "Zen" evoca 
 Nuestro diagrama de la base de datos:
 
 ![Diagrama](/diagrama.png)
+
+En esta segunda entrega implemente una pequeña pagina sobre mi aerolinea "Viajes Lupa", la cual se le agrego una tabla extra para los usuarios guardados, ademas de implementarle nuevas tecnologias enseñadas en clase.
+explicacion de como desplegar el sitio en tu computadora:
+
+1° Hay q iniciar el xampp en Apache y MySQl o instalar en caso de que no lo tenga y configurarlo.
+2° Hacer un git clone del repositorio de git o importarlo de la manera q mas se adepte a vos.
+3° Configurar la base de datos.
+4° Para ingresar a informacio privada (ABM), los datos son: -Usuario:webadmin
+                                                            -Contraseña:admin (Hash en caso de ser nec. $2y$10$IVORXtjzJQbw6tnGo4iqReoqk.MFvc/6gHUPzkZqXJUB9dY.hDZLq)
 
 
