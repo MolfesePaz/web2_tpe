@@ -25,6 +25,5 @@ explicacion de como desplegar el sitio en tu computadora:
 2° Hacer un git clone del repositorio de git o importarlo de la manera q mas se adepte a vos.
 3° Configurar la base de datos.
 4° Para ingresar a informacio privada (ABM), los datos son: -Usuario:webadmin
-                                                            -Contraseña:admin (Hash en caso de ser nec. $2y$10$IVORXtjzJQbw6tnGo4iqReoqk.MFvc/6gHUPzkZqXJUB9dY.hDZLq)
-
+                                                            -Contraseña:admin
 
