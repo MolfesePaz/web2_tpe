@@ -2,7 +2,7 @@
 require_once 'app/model/deploy.model.php';
 class viajesModel extends Model{
     
-    private $db;
+    protected $db;
 
     function __construct(){
         $this->db = $this->connect();

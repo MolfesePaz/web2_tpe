@@ -1,7 +1,7 @@
 <?php
 require_once 'app/model/deploy.model.php';
 class empresasModel extends Model{
-    private $db;
+    protected $db;
 
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;dbname=viajesLupa;charset=utf8', 'root', '');
