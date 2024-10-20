@@ -8,19 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
-
+<body class="d-flex flex-column min-vh-100">
 {include 'header.tpl'}
-<main class="container">
-    
+<main class="flex-fill">    
     <h1>Detalle del Viaje</h1>
         <p><strong>Origen:</strong> {$viaje->origen}</p>
         <p><strong>Destino:</strong> {$viaje->destino}</p>
         <p><strong>Fecha de salida:</strong> {$viaje->FechaDeSalida}</p>
         <p><strong>Fecha de llegada:</strong> {$viaje->FechaDeLlegada}</p>
         <a href='list'>Volver al listado</a>
-          
-    {include 'footer.tpl'}
-    </main> 
+    </main>       
+{include 'footer.tpl'}
+     
 </body>
 </html>

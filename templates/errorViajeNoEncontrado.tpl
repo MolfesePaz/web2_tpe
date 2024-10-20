@@ -8,11 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
+<<body class="d-flex flex-column min-vh-100">>
 
 {include 'header.tpl'}
-
-    <div class="container mt-8 mb-8 py-5 text-center">
+<main class="flex-fill">    <div class="container mt-8 mb-8 py-5 text-center">
 
         <div class="alert alert-danger p-4">
 
@@ -23,8 +22,8 @@
         </div> 
          
     </div>
-
+</main> 
 {include 'footer.tpl'}
-    </main> 
+    
 </body>
 </html>

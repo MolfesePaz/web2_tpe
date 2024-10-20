@@ -1,4 +1,4 @@
-<footer class="container-fluid bg-light p-3 position-sticky bottom-0 w-100">
+<footer class="container-fluid bg-light p-3  mt-4 position-sticky bottom-0 w-100">
     <div class="row align-items-center">
         <div class="col-md-4 text-center">
             <h5>Seguinos en redes</h5>

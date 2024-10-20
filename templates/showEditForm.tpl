@@ -8,11 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
-
+<body class="d-flex flex-column min-vh-100">
 {include 'header.tpl'}
 
-<main class="container">
+<main class="flex-fill">
 
 <form action="edit/{$viaje->id_viaje}" method="post">
     <div class="form-group">
@@ -41,8 +40,8 @@
     </div>
     <button type="submit" class="btn btn-success">Actualizar</button>
 </form>
-
+</main>
 {include "footer.tpl"}
-    </main> 
+    
 </body>
 </html>

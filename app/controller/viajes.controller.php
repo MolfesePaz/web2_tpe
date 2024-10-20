@@ -16,6 +16,7 @@ class viajesController{
     }
 
     public function showList(){
+        session_start();
         // Llamar al modelo para obtener la lista de viajes
         $viajes = $this->model->getViajes();
 
