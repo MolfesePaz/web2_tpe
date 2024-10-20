@@ -4,16 +4,16 @@
             <h5>Seguinos en redes</h5>
             <ul class="d-flex list-unstyled justify-content-center">
                 <li class="mx-2">
-                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
                 </li>
                 <li class="mx-2">
-                    <a href="https://www.instagram.com/">Instagram</a>
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
                 </li>
             </ul>
             <h5>Escribinos tus dudas</h5>
             <ul class="d-flex list-unstyled justify-content-center">
                 <li class="mx-2">
-                    <a href="https://web.whatsapp.com/">Whatsapp</a>
+                    <a href="https://web.whatsapp.com/" target="_blank">Whatsapp</a>
                 </li>
             </ul>
         </div>

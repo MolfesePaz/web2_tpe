@@ -1,6 +1,5 @@
 <?php
-
-
+require_once 'app/model/deploy.model.php';
 class viajesModel extends Model{
     
     private $db;

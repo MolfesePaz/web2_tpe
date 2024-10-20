@@ -1,4 +1,5 @@
 <?php
+require_once 'app/model/deploy.model.php';
 class empresasModel extends Model{
     private $db;
 

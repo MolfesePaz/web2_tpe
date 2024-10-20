@@ -16,6 +16,9 @@
                             <p class="nav-link">Hola, {$smarty.session.NOMBRE_USER} </p>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="btn-menu-register" href='tablaAbm'>Administrar</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="btn-menu-register" href='logout'>Logout</a>
                         </li>                    
                     {else}  
