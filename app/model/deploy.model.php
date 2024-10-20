@@ -5,13 +5,8 @@ class Model {
     protected $db;
 
     public function __construct() {
-        $this->db = new PDO("mysql:host=".MYSQL_HOST ,MYSQL_USER, MYSQL_PASS);
-
-        $this->db->exec("CREATE DATABASE IF NOT EXISTS `" . MYSQL_DB . "` CHARACTER SET utf8 COLLATE utf8_general_ci");
-
-        $this->db = new PDO("mysql:host=".MYSQL_HOST .";dbname=".MYSQL_DB.";charset=utf8", MYSQL_USER, MYSQL_PASS);
-
-        $this->deploy();
+            $this->db = new PDO("mysql:host=".MYSQL_HOST .";dbname=".MYSQL_DB.";charset=utf8", MYSQL_USER, MYSQL_PASS);
+            $this->deploy();
     }
 
     private function deploy() {

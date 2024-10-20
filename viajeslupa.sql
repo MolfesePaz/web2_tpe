@@ -20,8 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `viajeslupa`
 --
+CREATE DATABASE IF NOT EXISTS viajeslupa;
 
--- --------------------------------------------------------
+USE viajeslupa;-------------------------------
 
 --
 -- Estructura de tabla para la tabla `empresa`

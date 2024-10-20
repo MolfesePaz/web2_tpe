@@ -48,7 +48,7 @@ class autenticadorController{
             $_SESSION['LAST_ACTIVITY']= time();
 
             //redirijo al home
-            header('location: ' . BASE_URL . 'list');
+            header('location: ' . BASE_URL . 'tablaAbm');
             return;
         }else{
             return $this->view->showLogin('Informacion ingresada incorrecta');

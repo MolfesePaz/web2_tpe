@@ -7,8 +7,8 @@ class abmView {
 
     public function __construct() {
         $this->smarty = new Smarty(); // Inicializar Smarty
-        $this->smarty->setTemplateDir('templates/');
-        $this->smarty->setCompileDir('templates_c/');
+ /*        $this->smarty->setTemplateDir('templates/');
+        $this->smarty->setCompileDir('templates_c/'); */
     }
 
     function showTablaAbm($viajes, $empresas, $usuario, $error = '') {

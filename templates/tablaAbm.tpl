@@ -35,8 +35,7 @@
                     <td>{$viaje->origen}</td>
                     <td>{$viaje->destino}</td>
                     <td>{$viaje->FechaDeSalida}</td>
-                    <td>{$viaje->FechaDeLlegada}</td>
-                    <td>{$viaje->id_empresa}</td>
+                    <td>{$viaje->FechaDeLlegada}</td>   
 
                     <td>
                         <a href="edit/{$viaje->id_viaje}" class="btn btn-primary">Editar</a>

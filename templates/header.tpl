@@ -11,12 +11,18 @@
                 </div>
 
                 <div class="row col-md-4 justify-content-end p-0">
-                    <li class="nav-item">
-                        <a class="nav-link mr-2" id="btn-menu-login" href='ingresar'>Ingresar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="btn-menu-register" href='logout'>Desloguar</a>
-                    </li>
+                    {if isset($smarty.session.ID_USER)}
+                        <li class="nav-item">
+                        <p class="nav-link">Hola, {$smarty.session.NOMBRE_USER} </p>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="btn-menu-register" href='logout'>Logout</a>
+                        </li>                    
+                    {else}  
+                        <li class="nav-item">
+                            <a class="nav-link mr-2" id="btn-menu-login" href='ingresar'>Login</a>
+                        </li>
+                    {/if}
                 </div>
             </ul>
         </div>
