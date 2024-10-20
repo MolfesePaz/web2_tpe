@@ -1,5 +1,5 @@
 <?php
-class viajesAbmModel {
+class viajesAbmModel extends Model{
     private $db;
 
     public function __construct() {

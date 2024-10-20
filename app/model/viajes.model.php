@@ -1,7 +1,7 @@
 <?php
 
 
-class viajesModel{
+class viajesModel extends Model{
     
     private $db;
 
