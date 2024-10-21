@@ -5,16 +5,29 @@ class Model {
     protected $db;
 
     public function __construct() {
-            $this->db = new PDO("mysql:host=".MYSQL_HOST .";dbname=".MYSQL_DB.";charset=utf8", MYSQL_USER, MYSQL_PASS);
-            $this->deploy();
-    }
+        try {
+            // Primero intento conectarme la base de datos
+            $this->db = new PDO("mysql:host=".MYSQL_HOST.";charset=utf8", MYSQL_USER, MYSQL_PASS);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // Intento usarla
+            $this->db->exec("USE " . MYSQL_DB);
 
-    private function deploy() {
+        } catch (PDOException $e) {
+                $this->db->exec("CREATE DATABASE IF NOT EXISTS " . MYSQL_DB . " CHARACTER SET utf8 COLLATE utf8_general_ci");            
+                $this->db->exec("USE " . MYSQL_DB);            
+        }
+        // Finalmente, ejecutamos el deploy para crear tablas si es necesario
+        $this->deploy();
+    }
+    
+    private function deploy() {   
         $query = $this->db->query('SHOW TABLES');
-        $contraseña = '$2y$10$IVORXtjzJQbw6tnGo4iqReoqk.MFvc/6gHUPzkZqXJUB9dY.hDZLq';
+        if ($query === false) {
+            die('Error en la consulta SHOW TABLES.');
+        }
         $tables = $query->fetchAll();
         if(count($tables) == 0) {
-             $sql = <<<END
+        $sql = <<<END
                 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
                 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
                 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -42,9 +55,7 @@ class Model {
                 --
 
                 INSERT INTO `empresa` (`id_empresa`, `nombre`, `fecha_inicio`, `ubicacion`) VALUES
-                (1, 'ZenAir', '2015-06-23', 'Buenos Aires, Argentina');
-
-                -- --------------------------------------------------------
+                (1, 'ZenAir', '2015-06-23', 'Buenos Aires, Argentina');             
 
                 --
                 -- Estructura de tabla para la tabla `usuarios`
@@ -61,7 +72,7 @@ class Model {
                 --
 
                 INSERT INTO `usuarios` (`id`, `nombre`, `contraseña`) VALUES
-                (1, 'webadmin', $contraseña);
+                (1, 'webadmin', '\$2y\$10\$IVORXtjzJQbw6tnGo4iqReoqk.MFvc/6gHUPzkZqXJUB9dY.hDZLq');
 
                 -- --------------------------------------------------------
 
@@ -156,6 +167,3 @@ class Model {
         }
     }
 }
-
-                    
-    

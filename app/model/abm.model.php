@@ -1,12 +1,12 @@
 <?php
 require_once 'app/model/deploy.model.php';
 class viajesAbmModel extends Model{
-    protected $db;
+    /* protected $db;
 
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;dbname=viajesLupa;charset=utf8', 'root', '');
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
+    } */
 
     // Obtener todos los viajes futuros (disponibles)
     public function getAllViajes() {

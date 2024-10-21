@@ -12,34 +12,36 @@
 {include 'header.tpl'}
 
 <main class="flex-fill">
+    <div class="container">
 
-<form action="edit/{$viaje->id_viaje}" method="post">
-    <div class="form-group">
-        <label>Origen</label>
-        <input type="text" name="origen" class="form-control" value="{$viaje->origen}" required>
+        <form action="edit/{$viaje->id_viaje}" method="post">
+            <div class="form-group">
+                <label>Origen</label>
+                <input type="text" name="origen" class="form-control" value="{$viaje->origen}" required>
+            </div>
+            <div class="form-group">
+                <label>Destino</label>
+                <input type="text" name="destino" class="form-control" value="{$viaje->destino}" required>
+            </div>
+            <div class="form-group">
+                <label>Fecha de Salida</label>
+                <input type="date" name="FechaDeSalida" class="form-control" value="{$viaje->FechaDeSalida}" required>
+            </div>
+            <div class="form-group">
+                <label>Fecha de Llegada</label>
+                <input type="date" name="FechaDeLlegada" class="form-control" value="{$viaje->FechaDeLlegada}" required>
+            </div>
+            <div class="form-group">
+                <label>Empresa</label>
+                <select name="id_empresa" class="form-control" required>
+                    {foreach $empresas as $empresa}
+                        <option value="{$empresa->id_empresa}" {if $empresa->id_empresa == $viaje->id_empresa}selected{/if}>{$empresa->nombre}</option>
+                    {/foreach}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Actualizar</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label>Destino</label>
-        <input type="text" name="destino" class="form-control" value="{$viaje->destino}" required>
-    </div>
-    <div class="form-group">
-        <label>Fecha de Salida</label>
-        <input type="date" name="FechaDeSalida" class="form-control" value="{$viaje->FechaDeSalida}" required>
-    </div>
-    <div class="form-group">
-        <label>Fecha de Llegada</label>
-        <input type="date" name="FechaDeLlegada" class="form-control" value="{$viaje->FechaDeLlegada}" required>
-    </div>
-    <div class="form-group">
-        <label>Empresa</label>
-        <select name="id_empresa" class="form-control" required>
-            {foreach $empresas as $empresa}
-                <option value="{$empresa->id_empresa}" {if $empresa->id_empresa == $viaje->id_empresa}selected{/if}>{$empresa->nombre}</option>
-            {/foreach}
-        </select>
-    </div>
-    <button type="submit" class="btn btn-success">Actualizar</button>
-</form>
 </main>
 {include "footer.tpl"}
     

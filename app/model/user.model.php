@@ -1,12 +1,6 @@
 <?php
 require_once 'app/model/deploy.model.php';
 class userModel extends Model{
-    protected $db;
-
-     function __construct(){
-        $this->db =  new PDO ('mysql:host=localhost;dbname=viajesLupa;charset=utf8', 'root', '');
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         /* $nuevoNombre = "webadmin"; // Cambia esto por el nombre de usuario que desees
         $nuevaContrasena = password_hash("admin", PASSWORD_DEFAULT); // Hashea la contraseña
 
@@ -14,7 +8,7 @@ class userModel extends Model{
         $stmt->execute([$nuevaContrasena, $nuevoNombre]);
 
         echo "Contraseña actualizada."; */
-        }     
+        
 
     function getUserByNombre($nombre){
         $query = $this->db->prepare('SELECT * FROM usuarios WHERE nombre = ?');
@@ -23,5 +17,4 @@ class userModel extends Model{
         $usuario = $query->fetch(PDO::FETCH_OBJ);
         return $usuario;
     }
-
 }

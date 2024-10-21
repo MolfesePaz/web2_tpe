@@ -2,7 +2,7 @@
 require_once 'app/model/deploy.model.php';
 class viajesModel extends Model{
     
-    protected $db;
+   /*  protected $db;
 
     function __construct(){
         $this->db = $this->connect();
@@ -10,7 +10,7 @@ class viajesModel extends Model{
     
     private function connect(){
         return $db = new PDO ('mysql:host=localhost;dbname=viajeslupa;charset=utf8', 'root', '');
-    }     
+    }      */
 
     function getViajes(){
         $query = $this->db->prepare('SELECT * FROM viajes');

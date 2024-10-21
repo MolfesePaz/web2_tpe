@@ -10,13 +10,15 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 {include 'header.tpl'}
-<main class="flex-fill">    
-    <h1>Detalle del Viaje</h1>
-        <p><strong>Origen:</strong> {$viaje->origen}</p>
-        <p><strong>Destino:</strong> {$viaje->destino}</p>
-        <p><strong>Fecha de salida:</strong> {$viaje->FechaDeSalida}</p>
-        <p><strong>Fecha de llegada:</strong> {$viaje->FechaDeLlegada}</p>
-        <a href='list'>Volver al listado</a>
+    <main class="flex-fill">  
+        <div class= "container">  
+            <h1>Detalle del Viaje</h1>
+                <p><strong>Origen:</strong> {$viaje->origen}</p>
+                <p><strong>Destino:</strong> {$viaje->destino}</p>
+                <p><strong>Fecha de salida:</strong> {$viaje->FechaDeSalida}</p>
+                <p><strong>Fecha de llegada:</strong> {$viaje->FechaDeLlegada}</p>
+                <a href='list'>Volver al listado</a>
+        </div>
     </main>       
 {include 'footer.tpl'}
      
