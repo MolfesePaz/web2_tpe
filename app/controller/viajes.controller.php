@@ -61,14 +61,19 @@ class abmController{
         $this->usuario = $usuario;
     }
 
-    public function mostrarTabla() {
-        // Verificar si el usuario ha iniciado sesión
+    public function verificacion(){
         session_start(); 
         if (!isset($_SESSION['ID_USER'])) {
             // Redirigir al usuario a la página de login si no está autenticado
             header('Location: ' . BASE_URL . 'showLogin');
             return;
         }
+    }
+
+    public function mostrarTabla() {
+
+        $this->verificacion();
+
         $viajes = $this->model->getAllViajes(); //tomo todos los viajes
         $empresas = $this->empresasModel->getAllEmpresas();// Obtener empresas
 
@@ -76,26 +81,31 @@ class abmController{
         $this->view->showTablaAbm($viajes, $empresas, $this->usuario);
     }
 
-     public function agregarViaje() {
+    public function agregarViaje() {
 
-    if (!isset($_POST['origen']) || !isset($_POST['destino']) || !isset($_POST['FechaDeSalida']) || !isset($_POST['FechaDeLlegada']) || !isset($_POST['id_empresa'])) {
-        return $this->view->mostrarError('Falta completar algun campo');
+        $this->verificacion();
+
+        if (!isset($_POST['origen']) || !isset($_POST['destino']) || !isset($_POST['FechaDeSalida']) || !isset($_POST['FechaDeLlegada']) || !isset($_POST['id_empresa'])) {
+            return $this->view->mostrarError('Falta completar algun campo');
+        }
+
+        $origen=$_POST['origen'];
+        $destino=$_POST['destino'];
+        $FechaDeSalida=$_POST['FechaDeSalida'];
+        $FechaDeLlegada=$_POST['FechaDeLlegada'];
+        $id_empresa = $_POST['id_empresa'];
+
+        $this->model->insertViaje($origen, $destino, $FechaDeSalida, $FechaDeLlegada, $id_empresa);
+
+        header('Location: ' . BASE_URL . 'tablaAbm');
+        return;
     }
-
-    $origen=$_POST['origen'];
-    $destino=$_POST['destino'];
-    $FechaDeSalida=$_POST['FechaDeSalida'];
-    $FechaDeLlegada=$_POST['FechaDeLlegada'];
-    $id_empresa = $_POST['id_empresa'];
-
-    $this->model->insertViaje($origen, $destino, $FechaDeSalida, $FechaDeLlegada, $id_empresa);
-
-    header('Location: ' . BASE_URL . 'tablaAbm');
-    return;
-}
 
     // Eliminar un viaje existente
     public function eliminarViaje($id) {
+
+        $this->verificacion();
+
         $viaje = $this->modelViajes->getViajeId($id);
         if(!$viaje){
             $this->view->mostrarError("el viaje a eliminar no existe");
@@ -109,6 +119,9 @@ class abmController{
 
     // Editar un viaje existente
     public function modificarViaje($id) {
+
+        $this->verificacion();
+
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $viaje = $this->model->getViajeById($id);
             $empresas = $this->empresasModel->getAllEmpresas();

@@ -1,5 +1,5 @@
 <?php
-
+include_once 'app/middwares/verify.sesions.php';
 include_once 'app/controller/viajes.controller.php';
 include_once 'app/controller/autenticador.controller.php'; 
 include_once 'utils/response.php';
@@ -15,7 +15,7 @@ $action = 'list';
 if (!empty($_GET['action'])) { // si viene definida la reemplazamos
     $action = $_GET['action'];
 }else{
-    'list';
+    $action = 'list';
 }
 
 $params = explode('/', $action);
@@ -28,14 +28,14 @@ switch ($params[0]) {
         break;
 
     case "detallePorId":
-        vistaEspectador($response);
+        SesionAutUsuario($response);
        $controller = new viajesController();
        $id = $params[1];
        $controller -> showId($id);
         break;
 
     case 'detallePorNombre':
-        vistaEspectador($response);
+        SesionAutUsuario($response);
         $controller = new viajesController();
         $destino = $params[1];
         $controller-> showName($destino);
@@ -44,7 +44,8 @@ switch ($params[0]) {
         $controller = new autenticadorController($response);
         $controller->Login();
         break;
-    case 'ingresar':   
+    case 'ingresar':  
+        SesionAutUsuario($response); 
         $controller = new autenticadorController($response);
         $controller->ingresar();
         break;
@@ -52,22 +53,26 @@ switch ($params[0]) {
         $controller = new autenticadorController($response);
         $controller->logout();  
     case 'tablaAbm':
+        //SesionAutUsuario($response);
+        verifyAuthMiddleware($response);
         $controller = new AbmController($response->usuario);
         $controller->mostrarTabla();
         break;
     case 'add':
         SesionAutUsuario($response);
+        verifyAuthMiddleware($response);
         $controller = new abmController($response->usuario);
         $controller->agregarViaje();
         break;
     case 'edit':
         SesionAutUsuario($response);
+        verifyAuthMiddleware($response);
         $controller = new abmController($response->usuario);
         $controller->modificarViaje($params[1]);
         break;
     case 'delete':
         SesionAutUsuario($response);
-        //$id = $params[1];
+        verifyAuthMiddleware($response);
         $controller = new abmController($response->usuario);
         $controller->eliminarViaje($params[1]);
         break;   
